@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white flex items-center justify-center px-6">
@@ -27,15 +27,18 @@ export default function Home() {
 
         <div className="flex justify-center gap-6 mt-10">
 
-          <button className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-xl font-bold text-lg transition">
-            Get Started
-          </button>
+  <Link
+    href="/login"
+    className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-xl font-bold text-lg inline-block"
+  >
+    Get Started
+  </Link>
 
-          <button className="border border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition">
-            Watch Demo
-          </button>
+  <button className="border border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white px-8 py-4 rounded-xl font-bold text-lg">
+    Watch Demo
+  </button>
 
-        </div>
+</div>
 
       </div>
 
