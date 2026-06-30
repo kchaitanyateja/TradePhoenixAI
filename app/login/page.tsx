@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
+
 import { useState } from "react";
 import { createClient } from "@/utils/supabase/client";
 
@@ -34,7 +35,9 @@ const signIn = async () => {
   if (error) {
     alert(error.message);
   } else {
-  router.push("/dashboard");
+  await supabase.auth.refreshSession();
+router.refresh();
+router.push("/dashboard");
 }
 };
 

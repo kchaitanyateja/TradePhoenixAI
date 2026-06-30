@@ -1,4 +1,18 @@
-export default function Dashboard() {
+import { redirect } from "next/navigation";
+import { createClient } from "@/utils/supabase/server";
+import LogoutButton from "./LogoutButton";
+
+export default async function Dashboard() {
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    redirect("/login");
+  }
+
   return (
     <main
       style={{
@@ -15,6 +29,7 @@ export default function Dashboard() {
       <h2>Dashboard</h2>
 
       <p>You have successfully logged in.</p>
+      <p><strong>Email:</strong> {user.email}</p>
     </main>
   );
 }
